@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "mongo-indexer"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1qh2plv3xt6my"
+s3_prefix = "mongo-indexer"
+region = "us-west-2"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
