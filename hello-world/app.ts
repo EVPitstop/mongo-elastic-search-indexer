@@ -1,4 +1,6 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { APIGatewayProxyResult } from 'aws-lambda';
+import { DATABASE_OPERATION_TYPE, MongoEvent } from './types';
+import { Client } from '@elastic/elasticsearch';
 
 /**
  *
@@ -10,13 +12,60 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
  *
  */
 
-export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const lambdaHandler = async (event: MongoEvent): Promise<APIGatewayProxyResult> => {
+    const { ELASTIC_CLOUD_ID, ELASTIC_CLOUD_API_KEY, SEARCH_INDEX } = process.env;
+    if (!ELASTIC_CLOUD_ID || !ELASTIC_CLOUD_API_KEY || !SEARCH_INDEX) {
+        return {
+            statusCode: 500,
+            body: JSON.stringify({
+                message: 'Missing env config',
+            }),
+        };
+    }
+
+    const client = new Client({
+        cloud: {
+            id: ELASTIC_CLOUD_ID,
+        },
+        auth: {
+            apiKey: ELASTIC_CLOUD_API_KEY,
+        },
+    });
+
+    const documentId = event.detail.documentKey._id;
     let response: APIGatewayProxyResult;
     try {
+        switch (event.detail.operationType) {
+            case DATABASE_OPERATION_TYPE.DELETE: {
+                await client.delete({
+                    index: SEARCH_INDEX,
+                    id: documentId,
+                });
+                console.log(`Deleting index for document ${documentId}`);
+
+                break;
+            }
+            default:
+            case DATABASE_OPERATION_TYPE.UPDATE:
+            case DATABASE_OPERATION_TYPE.REPLACE:
+            case DATABASE_OPERATION_TYPE.INSERT: {
+                let fullDocument = event.detail.fullDocument;
+                delete fullDocument._id; // _id is a metadata field and cannot be added inside a document
+            
+                await client.index({
+                    index: SEARCH_INDEX,
+                    id: documentId,
+                    document: fullDocument,
+                });
+                console.log(`Updating index for document ${documentId}`);
+                break;
+            }
+        }
+
         response = {
             statusCode: 200,
             body: JSON.stringify({
-                message: 'hello world',
+                message: 'Index modified',
             }),
         };
     } catch (err) {
@@ -24,7 +73,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
         response = {
             statusCode: 500,
             body: JSON.stringify({
-                message: 'some error happened',
+                message: 'Error occured updating index',
             }),
         };
     }

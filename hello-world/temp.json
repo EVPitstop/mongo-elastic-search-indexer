@@ -1,0 +1,53 @@
+{
+  "detail": {
+    _id: {
+      _data: '8262C664920000003D2B022C0100296E5A1004E13E32AB0E35485B8023983F9621D1CA463C5F6964003C3130303338343936000004'
+    },
+    operationType: 'update',
+    clusterTime: { T: 1657169042, I: 61 },
+    fullDocument: {
+      _id: '10038496',
+      listing_url: 'https://www.airbnb.com/rooms/10038496',
+      name: 'Copacabana Apartment Posto dddd69',
+      summary: 'The Apartment has a living room, toilet, bedroom (suite) and American kitchen. Well located, on the Copacabana beach block a 05 Min. walk from Ipanema beach (Arpoador). Internet wifi, cable tv, air conditioning in the bedroom, ceiling fans in the bedroom and living room, kitchen with microwave, cooker, Blender, dishes, cutlery and service area with fridge, washing machine, clothesline for drying clothes and closet with several utensils for use.  The property boasts 45 m2.',
+      space: "The apartment has a living room, wash room, suite and an American kitchen. The bedroom has a double bed and there's a bunk bed in the living room. It is very well located, in the Copacabana beach block and just a few blocks from Arpoador and Ipanema. You can walk to any of those beaches. It has internet wifi, tv, air conditioning in the bedroom, ceiling fans in the living room and the bedroom and an equipped kitchen with cooker, fridge, washing machine, microwave and utensils. Ease of public transportation, banks, markets and restaurants.",
+      description: "The Apartment has a living room, toilet, bedroom (suite) and American kitchen. Well located, on the Copacabana beach block a 05 Min. walk from Ipanema beach (Arpoador). Internet wifi, cable tv, air conditioning in the bedroom, ceiling fans in the bedroom and living room, kitchen with microwave, cooker, Blender, dishes, cutlery and service area with fridge, washing machine, clothesline for drying clothes and closet with several utensils for use.  The property boasts 45 m2. The apartment has a living room, wash room, suite and an American kitchen. The bedroom has a double bed and there's a bunk bed in the living room. It is very well located, in the Copacabana beach block and just a few blocks from Arpoador and Ipanema. You can walk to any of those beaches. It has internet wifi, tv, air conditioning in the bedroom, ceiling fans in the living room and the bedroom and an equipped kitchen with cooker, fridge, washing machine, microwave and utensils. Ease of public transportation, banks, mar",
+      neighborhood_overview: 'Copacabana in the South zone is the district that offers the greatest number of options for tourists, transport, restaurants, banks, pharmacies and commerce in general are in abundance in all the blocks of the neighborhood.',
+      notes: '',
+      transit: 'On the street there is plenty of transport and the subway station is nearby (06 blocks). To get to the Christ the Redeemer Statue there are the options of Metro, bus (at the door) or taxi and the Sugar Loaf (pão de açúcar), bus (at the door), cab, all very close.',
+      access: 'todo o espaço.',
+      interaction: 'Contact telephone numbers if needed: Valeria ((PHONE NUMBER HIDDEN) (URL HIDDEN) ((PHONE NUMBER HIDDEN) cell phone (URL HIDDEN) (021) mobile/(PHONE NUMBER HIDDEN) José (URL HIDDEN)Concierge support; Fernando (caretaker boss) business hours.',
+      house_rules: 'Entreguem o imóvel conforme receberam e respeitem as regras do condomínio para não serem incomodados.  Não danificar os utensílios e tudo que se refere as boas condições referentes ao mesmo . Não fazer barulho após às 22:00  até às 8:00. Usar entrada de serviço se estiver molhado voltando da praia.',
+      property_type: 'Apartment',
+      room_type: 'Entire home/apt',
+      bed_type: 'Real Bed',
+      minimum_nights: '3',
+      maximum_nights: '75',
+      cancellation_policy: 'strict_14_with_grace_period',
+      last_scraped: '2019-02-11T05:00:00Z',
+      calendar_last_scraped: '2019-02-11T05:00:00Z',
+      first_review: '2016-01-18T05:00:00Z',
+      last_review: '2019-01-28T05:00:00Z',
+      accommodates: 4,
+      bedrooms: 1,
+      beds: 3,
+      number_of_reviews: 70,
+      bathrooms: '2.0',
+      amenities: [Array],
+      price: '119.00',
+      security_deposit: '600.00',
+      cleaning_fee: '150.00',
+      extra_people: '40.00',
+      guests_included: '3',
+      images: [Object],
+      host: [Object],
+      address: [Object],
+      availability: [Object],
+      review_scores: [Object],
+      reviews: [Array]
+    },
+    ns: { db: 'sample_airbnb', coll: 'listingsAndReviews' },
+    documentKey: { _id: '10038496' },
+    updateDescription: { updatedFields: [Object], removedFields: [], truncatedArrays: [] }
+  }
+}
